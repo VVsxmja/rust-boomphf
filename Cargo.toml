@@ -28,5 +28,6 @@ name = "build"
 harness = false
 
 [features]
-default = ["parallel"]
-parallel = ["rayon", "crossbeam-utils"]
+# default = ["parallel"]
+# parallel = ["rayon", "crossbeam-utils"]
+default = []

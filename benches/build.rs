@@ -13,7 +13,7 @@ fn build1_ser(bench: &mut Bencher) {
     });
 }
 
-#[allow(dead_code)]
+#[allow(dead_code, unused_variables)]
 fn build1_par(bench: &mut Bencher) {
     #[cfg(feature = "parallel")]
     bench.iter(|| {

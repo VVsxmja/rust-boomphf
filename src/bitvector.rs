@@ -41,16 +41,16 @@ type Word = u64;
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct BitVector {
-    bits: u64,
+    pub bits: u64,
     #[cfg(feature = "parallel")]
     #[cfg_attr(
         feature = "serde",
         serde(serialize_with = "ser_atomic_vec", deserialize_with = "de_atomic_vec")
     )]
-    vector: Box<[AtomicU64]>,
+    pub vector: Box<[AtomicU64]>,
 
     #[cfg(not(feature = "parallel"))]
-    vector: Box<[u64]>,
+    pub vector: Box<[u64]>,
 }
 
 // Custom serializer

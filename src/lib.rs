@@ -32,7 +32,7 @@
 #[cfg(feature = "parallel")]
 use rayon::prelude::*;
 
-mod bitvector;
+pub mod bitvector;
 pub mod hashmap;
 #[cfg(feature = "parallel")]
 mod par_iter;
@@ -91,7 +91,7 @@ fn hashmod<T: Hash + ?Sized>(iter: u64, v: &T, n: u64) -> u64 {
 #[derive(Clone, Debug)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Mphf<T> {
-    bitvecs: Box<[(BitVector, Box<[u64]>)]>,
+    pub bitvecs: Box<[(BitVector, Box<[u64]>)]>,
     phantom: PhantomData<T>,
 }
 

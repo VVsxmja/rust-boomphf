@@ -14,9 +14,9 @@ use std::iter::ExactSizeIterator;
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct BoomHashMap<K: Hash, D> {
-    mphf: Mphf<K>,
-    pub(crate) keys: Vec<K>,
-    pub(crate) values: Vec<D>,
+    pub mphf: Mphf<K>,
+    pub keys: Vec<K>,
+    pub values: Vec<D>,
 }
 
 impl<K, D> BoomHashMap<K, D>
@@ -24,7 +24,7 @@ where
     K: Hash + Debug + PartialEq,
     D: Debug,
 {
-    fn create_map(mut keys: Vec<K>, mut values: Vec<D>, mphf: Mphf<K>) -> BoomHashMap<K, D> {
+    pub fn create_map(mut keys: Vec<K>, mut values: Vec<D>, mphf: Mphf<K>) -> BoomHashMap<K, D> {
         // reorder the keys and values according to the Mphf
         for i in 0..keys.len() {
             loop {
